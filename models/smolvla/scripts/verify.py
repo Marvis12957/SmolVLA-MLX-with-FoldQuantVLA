@@ -103,7 +103,7 @@ def _compare_pytorch(args: argparse.Namespace) -> dict:
 
 def register(subparsers: argparse._SubParsersAction) -> None:
     verify = subparsers.add_parser("verify", help="Compare PyTorch and MLX action chunks")
-    verify.add_argument("--artifact", default="checkpoints/raw/smolvla/ai20k")
+    verify.add_argument("--artifact", default="checkpoints/raw/smolvla/base")
     verify.add_argument("--reference", type=Path)
     verify.add_argument("--candidate", type=Path)
     verify.add_argument("--pytorch", action="store_true")

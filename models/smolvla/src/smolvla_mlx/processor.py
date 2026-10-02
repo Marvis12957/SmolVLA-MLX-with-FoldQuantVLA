@@ -91,7 +91,7 @@ def pad_vector(values: Any, target_dim: int) -> np.ndarray:
 
 @dataclass(frozen=True)
 class ProcessedObservation:
-    images: tuple[np.ndarray, np.ndarray, np.ndarray]
+    images: tuple[np.ndarray, ...]
     image_masks: np.ndarray
     state: np.ndarray
     language_tokens: np.ndarray
@@ -107,12 +107,16 @@ class PolicyProcessor:
         postprocessor: Mapping[str, Any],
         normalizer_state: Mapping[str, np.ndarray] | None = None,
         unnormalizer_state: Mapping[str, np.ndarray] | None = None,
+        image_features: tuple[str, ...] = IMAGE_KEYS,
+        empty_cameras: int = 0,
     ) -> None:
         self.preprocessor = dict(preprocessor)
         self.postprocessor = dict(postprocessor)
         self.normalizer_state = dict(normalizer_state or {})
         self.unnormalizer_state = dict(unnormalizer_state or {})
         self.rename_map = self._find_rename_map()
+        self.image_features = tuple(image_features)
+        self.empty_cameras = int(empty_cameras)
 
     @classmethod
     def from_pretrained(cls, path: str | Path) -> "PolicyProcessor":
@@ -128,7 +132,25 @@ class PolicyProcessor:
                         return load_file(parent / state_file)
             return {}
 
-        return cls(preprocessor, postprocessor, state_for(preprocessor, root), state_for(postprocessor, root))
+        image_features = IMAGE_KEYS
+        empty_cameras = 0
+        config_path = root / "config.json"
+        if config_path.is_file():
+            config = json.loads(config_path.read_text())
+            features = config.get("input_features") or {}
+            if isinstance(features, dict):
+                found = tuple(key for key in features if str(key).startswith("observation.images."))
+                if found:
+                    image_features = found
+            empty_cameras = int(config.get("empty_cameras", 0))
+        return cls(
+            preprocessor,
+            postprocessor,
+            state_for(preprocessor, root),
+            state_for(postprocessor, root),
+            image_features=image_features,
+            empty_cameras=empty_cameras,
+        )
 
     def _find_rename_map(self) -> dict[str, str]:
         for step in self.preprocessor.get("steps", []):
@@ -137,7 +159,12 @@ class PolicyProcessor:
         return {}
 
     def _normalization_pair(self, feature: str, state: Mapping[str, np.ndarray]) -> tuple[np.ndarray, np.ndarray] | None:
-        candidates = ((f"{feature}.mean", f"{feature}.std"), (f"{feature}.min", f"{feature}.max"))
+        # lerobot/smolvla_base stores the SO-100 embodiment under this prefix.
+        candidates = (
+            (f"{feature}.mean", f"{feature}.std"),
+            (f"{feature}.min", f"{feature}.max"),
+            (f"so100.buffer.{feature}.mean", f"so100.buffer.{feature}.std"),
+        )
         for first, second in candidates:
             if first in state and second in state:
                 return np.asarray(state[first], dtype=np.float32), np.asarray(state[second], dtype=np.float32)
@@ -181,19 +208,22 @@ class PolicyProcessor:
 
     def prepare(self, observation: Mapping[str, Any], task: str) -> ProcessedObservation:
         renamed = {self.rename_map.get(key, key): value for key, value in observation.items()}
-        missing = [key for key in IMAGE_KEYS[:2] if key not in renamed]
-        if missing:
-            raise KeyError(f"Observation is missing required camera(s): {missing}")
-        images = [resize_with_pad(renamed[key]) * 2.0 - 1.0 for key in IMAGE_KEYS[:2]]
-        # LeRobot creates a single missing image because empty_cameras=1. Its mask is false.
-        images.append(np.full_like(images[-1], -1.0))
+        present = [key for key in self.image_features if key in renamed]
+        if not present:
+            raise KeyError(f"Observation is missing required camera(s): {list(self.image_features)}")
+        images = [resize_with_pad(renamed[key]) * 2.0 - 1.0 for key in present]
+        masks = [True] * len(images)
+        missing = [key for key in self.image_features if key not in renamed]
+        for _ in missing[: self.empty_cameras]:
+            images.append(np.full_like(images[-1], -1.0))
+            masks.append(False)
         tokens, attention_mask = self.tokenize(task)
         if "observation.state" not in renamed:
             raise KeyError("Observation is missing observation.state")
         state = pad_vector(self.normalize_state(renamed["observation.state"]), PADDED_STATE_DIM)
         return ProcessedObservation(
-            images=(images[0], images[1], images[2]),
-            image_masks=np.asarray([True, True, False], dtype=np.bool_),
+            images=tuple(images),
+            image_masks=np.asarray(masks, dtype=np.bool_),
             state=state,
             language_tokens=tokens,
             language_attention_mask=attention_mask,

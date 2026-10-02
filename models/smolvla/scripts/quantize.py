@@ -54,7 +54,7 @@ def command_quantize(args: argparse.Namespace) -> None:
 
 def register(subparsers: argparse._SubParsersAction) -> None:
     quantize = subparsers.add_parser("quantize", help="Build an MLX or FoldQuant quantized artifact")
-    quantize.add_argument("--source", default="checkpoints/raw/smolvla/ai20k")
+    quantize.add_argument("--source", default="checkpoints/raw/smolvla/base")
     quantize.add_argument("--destination", default="checkpoints/mlx/smolvla/w8a8")
     quantize.add_argument("--scheme", choices=("mlx-w8", "mlx-w4", "w8a8", "w4a4", "w4a4-selective"), default="w8a8")
     quantize.add_argument("--block-size", type=int, default=64)
