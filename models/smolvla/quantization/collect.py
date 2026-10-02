@@ -26,24 +26,28 @@ def _attach_amax(module, name: str, captured: list[tuple[str, mx.array]]) -> Non
 
 def collect_activation_amax(
     artifact: str,
-    samples: int,
+    samples: int = 0,
     task: str = "pick up the block",
+    observations: list[dict] | None = None,
 ) -> dict[str, np.ndarray]:
-    """Max absolute activation per input channel, over ``samples`` synthetic forwards.
+    """Max absolute activation per input channel.
 
-    The LeRobot episode split is not on disk, so this uses the same synthetic
-    camera and state distribution as the benchmark.
+    ``observations`` are real frames. Without them, ``samples`` synthetic
+    forwards use the benchmark camera and state distribution.
     """
-    if samples < 1:
-        raise ValueError("Calibration needs at least one forward.")
+    if observations is None:
+        if samples < 1:
+            raise ValueError("Calibration needs at least one forward.")
+        observations = [{**synthetic_observation(seed), "task": task} for seed in range(samples)]
     session = InferenceSession(artifact, dtype="bfloat16")
     stats: dict[str, np.ndarray] = {}
     captured: list[tuple[str, mx.array]] = []
     for name, module in session.runtime.projections.items():
         _attach_amax(module, name, captured)
-    for seed in range(samples):
+    for index, observation in enumerate(observations):
         captured.clear()
-        session.predict(synthetic_observation(seed), task, seed=seed)
+        sample_task = str(observation.get("task", task))
+        session.predict(observation, sample_task, seed=index)
         mx.eval(*(value for _, value in captured))
         for name, reduced in captured:
             vector = np.asarray(reduced.astype(mx.float32))

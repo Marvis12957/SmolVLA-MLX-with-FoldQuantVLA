@@ -4,6 +4,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import numpy as np
+
 from .calibration import CalibrationSplit, make_episode_disjoint_split
 
 
@@ -57,3 +59,53 @@ def _task_index(root: Path, tasks: list | None) -> list[int]:
             raise RuntimeError(f"Task {name!r} is not in {task_file}.")
         resolved.append(lookup[name])
     return resolved
+
+
+def load_calibration_observations(
+    root: str | Path,
+    *,
+    seed: int = 1000,
+    num_calibration: int = 128,
+    num_heldout: int = 32,
+) -> tuple[CalibrationSplit, list[dict]]:
+    """Load one real frame from each calibration episode.
+
+    Images stay in the dataset's ``wrist`` / ``top`` names. The policy processor
+    renames them to the checkpoint cameras.
+    """
+    root = Path(root)
+    split = calibration_split_from_lerobot_root(
+        root, seed=seed, num_calibration=num_calibration, num_heldout=num_heldout
+    )
+    from lerobot.datasets.lerobot_dataset import LeRobotDataset
+
+    dataset = LeRobotDataset(
+        "hungho77/so101-ai20k-multitask",
+        root=root,
+        download_videos=False,
+        return_uint8=True,
+    )
+    observations = []
+    for ref in split.calibration:
+        item = dataset[ref.frame_index]
+        task = item.get("task", "")
+        if isinstance(task, (list, tuple)):
+            task = task[0]
+        observations.append(
+            {
+                "observation.images.wrist": _hwc_uint8(item["observation.images.wrist"]),
+                "observation.images.top": _hwc_uint8(item["observation.images.top"]),
+                "observation.state": np.asarray(item["observation.state"], dtype=np.float32).reshape(-1),
+                "task": str(task),
+            }
+        )
+    return split, observations
+
+
+def _hwc_uint8(image) -> np.ndarray:
+    array = np.asarray(image)
+    if array.ndim == 3 and array.shape[0] in (1, 3):
+        array = np.transpose(array, (1, 2, 0))
+    if np.issubdtype(array.dtype, np.floating):
+        array = np.clip(array * 255.0, 0, 255).astype(np.uint8)
+    return np.ascontiguousarray(array)
