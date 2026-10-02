@@ -1,0 +1,17 @@
+{
+  "action_shape": [
+    1,
+    50,
+    6
+  ],
+  "active_bytes": 590995098,
+  "dtype": "bfloat16",
+  "environment": {
+    "hardware": "Apple M4 Max, 36 GB",
+    "mlx": "0.32.3",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "python": "3.12.13"
+  },
+  "peak_bytes": 1680143471,
+  "steps": 10
+}
