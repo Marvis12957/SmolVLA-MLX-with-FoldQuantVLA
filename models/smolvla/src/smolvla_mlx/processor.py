@@ -195,6 +195,15 @@ class PolicyProcessor:
         mean, std = pair
         return (action - mean) / np.maximum(std, 1e-8)
 
+    @property
+    def action_dim(self) -> int:
+        """Robot action width stored in the checkpoint stats. Falls back to the SO-100 default."""
+        for state in (self.unnormalizer_state, self.normalizer_state):
+            pair = self._normalization_pair("action", state)
+            if pair is not None:
+                return int(np.asarray(pair[0]).shape[-1])
+        return ACTION_DIM
+
     def tokenize(self, task: str) -> tuple[np.ndarray, np.ndarray]:
         """Use the checkpoint tokenizer when transformers is installed."""
         try:
@@ -229,16 +238,14 @@ class PolicyProcessor:
             language_attention_mask=attention_mask,
         )
 
-    @staticmethod
-    def pad_actions(actions: Any) -> np.ndarray:
+    def pad_actions(self, actions: Any) -> np.ndarray:
         actions = np.asarray(actions, dtype=np.float32)
-        if actions.shape[-1] != ACTION_DIM:
-            raise ValueError(f"Expected {ACTION_DIM}-DoF actions, got {actions.shape}")
+        if actions.shape[-1] != self.action_dim:
+            raise ValueError(f"Expected {self.action_dim}-DoF actions, got {actions.shape}")
         return pad_vector(actions, PADDED_ACTION_DIM)
 
-    @staticmethod
-    def crop_actions(actions: Any) -> np.ndarray:
-        return np.asarray(actions)[..., :ACTION_DIM]
+    def crop_actions(self, actions: Any) -> np.ndarray:
+        return np.asarray(actions)[..., : self.action_dim]
 
     @staticmethod
     def empty_action_chunk(batch_size: int = 1) -> np.ndarray:

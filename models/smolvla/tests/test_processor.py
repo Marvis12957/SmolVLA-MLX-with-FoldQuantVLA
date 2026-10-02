@@ -26,6 +26,20 @@ def test_state_action_padding():
     assert np.count_nonzero(padded[6:]) == 0
 
 
+def test_action_dim_follows_checkpoint_stats():
+    processor = PolicyProcessor(
+        {"steps": []},
+        {"steps": []},
+        unnormalizer_state={
+            "action.mean": np.zeros(7, dtype=np.float32),
+            "action.std": np.ones(7, dtype=np.float32),
+        },
+    )
+    assert processor.action_dim == 7
+    cropped = processor.crop_actions(np.arange(32, dtype=np.float32))
+    assert cropped.shape == (7,)
+
+
 def test_action_mean_std_roundtrip():
     processor = PolicyProcessor(
         {"steps": []},
