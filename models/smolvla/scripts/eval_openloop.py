@@ -19,7 +19,10 @@ PADDED_ACTION_DIM = 32
 
 
 def command_eval(args: argparse.Namespace) -> None:
-    samples = _test_samples(Path(args.dataset), Path(args.split), args.seed, args.limit)
+    if args.reuse:
+        samples = _reuse_samples(Path(args.dataset), Path(args.reuse), args.limit)
+    else:
+        samples = _test_samples(Path(args.dataset), Path(args.split), args.seed, args.limit)
     reports = [_evaluate(Path(path), samples, args.device, args.seed) for path in args.checkpoints]
     payload = {
         "dataset": str(args.dataset),
@@ -87,14 +90,37 @@ def _evaluate(checkpoint: Path, samples: list[dict], device_name: str, seed: int
     }
 
 
-def _test_samples(root: Path, split_path: Path, seed: int, limit: int) -> list[dict]:
-    import pyarrow.parquet as pq
-    from lerobot.datasets.video_utils import decode_video_frames
+def _reuse_samples(root: Path, previous: Path, limit: int) -> list[dict]:
+    """Score the same frames already recorded in an open-loop result."""
+    payload = json.loads(previous.read_text())
+    refs = payload["checkpoints"][0]["episodes"]
+    if limit > 0:
+        refs = refs[:limit]
+    chosen = [(int(row["episode_index"]), int(row["frame_index"])) for row in refs]
+    return _load_frames(root, chosen)
 
+
+def _test_samples(root: Path, split_path: Path, seed: int, limit: int) -> list[dict]:
     split = json.loads(split_path.read_text())
     test_ids = [int(episode) for episode in split["test_episodes"]]
     if limit > 0:
         test_ids = test_ids[:limit]
+    rng = np.random.default_rng(seed)
+    chosen = []
+    episodes = _episode_table(root)
+    for episode_index in test_ids:
+        episode = episodes[episode_index]
+        start, end = episode["start"], episode["end"]
+        if end - start <= CHUNK:
+            continue
+        chosen.append((episode_index, int(rng.integers(start, end - CHUNK))))
+    return _load_frames(root, chosen)
+
+
+def _load_frames(root: Path, chosen: list[tuple[int, int]]) -> list[dict]:
+    import pyarrow.parquet as pq
+    from lerobot.datasets.video_utils import decode_video_frames
+
     episodes = _episode_table(root)
     table = pq.read_table(
         root / "data" / "chunk-000" / "file-000.parquet",
@@ -103,14 +129,9 @@ def _test_samples(root: Path, split_path: Path, seed: int, limit: int) -> list[d
     timestamps = table.column("timestamp").to_numpy()
     states = np.asarray(table.column("observation.state").to_pylist(), dtype=np.float32)
     actions = np.asarray(table.column("action").to_pylist(), dtype=np.float32)
-    rng = np.random.default_rng(seed)
     samples = []
-    for episode_index in test_ids:
+    for episode_index, frame in chosen:
         episode = episodes[episode_index]
-        start, end = episode["start"], episode["end"]
-        if end - start <= CHUNK:
-            continue
-        frame = int(rng.integers(start, end - CHUNK))
         future = actions[frame : frame + CHUNK]
         state = states[frame]
         images = {}
@@ -236,6 +257,7 @@ def register(subparsers: argparse._SubParsersAction) -> None:
     command.add_argument("--checkpoints", nargs="+", required=True)
     command.add_argument("--dataset", default="data/so101-ai20k-multitask")
     command.add_argument("--split", default="outputs/splits/split.json")
+    command.add_argument("--reuse", default="", help="Existing open-loop JSON whose frames should be scored again")
     command.add_argument("--device", default="auto")
     command.add_argument("--seed", type=int, default=1000)
     command.add_argument("--limit", type=int, default=0, help="Evaluate only the first N test episodes")

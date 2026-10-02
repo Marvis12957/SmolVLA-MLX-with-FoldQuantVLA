@@ -6,6 +6,431 @@
   "hold_state_mae_deg": 12.764875802009001,
   "checkpoints": [
     {
+      "checkpoint": "checkpoints/raw/smolvla/ai20k",
+      "step": null,
+      "mae_deg": 2.8759178156438083,
+      "first_mae_deg": 1.1075918314897495,
+      "normalized_mae": 0.12275459738853185,
+      "per_task": {
+        "pick red and blue cube then place  them into the bowl": {
+          "episodes": 5,
+          "mae_deg": 3.317016863822937,
+          "first_mae_deg": 0.8710206627845765
+        },
+        "pick banana and place it into the bowl": {
+          "episodes": 5,
+          "mae_deg": 2.4962388038635255,
+          "first_mae_deg": 1.656583273410797
+        },
+        "pick orange cube and place it into the cup": {
+          "episodes": 5,
+          "mae_deg": 4.981239151954651,
+          "first_mae_deg": 1.1067169427871704
+        },
+        "Move banana to the plate": {
+          "episodes": 5,
+          "mae_deg": 3.0412332892417906,
+          "first_mae_deg": 0.7074084520339966
+        },
+        "Pick up one orange block and stack it on top of the other orange block.": {
+          "episodes": 5,
+          "mae_deg": 3.943646216392517,
+          "first_mae_deg": 1.0114429950714112
+        },
+        "Open the drawer, pick up the red block, place it inside the drawer, then close the drawer": {
+          "episodes": 5,
+          "mae_deg": 1.8843966960906982,
+          "first_mae_deg": 0.9282865464687348
+        },
+        "Swap the positions of the blue and red blocks using the third empty plate": {
+          "episodes": 5,
+          "mae_deg": 2.0897875785827638,
+          "first_mae_deg": 0.9280296713113785
+        },
+        "place the blue on top of the orange block, then place the red block on top of the stacked blocks": {
+          "episodes": 6,
+          "mae_deg": 2.0311110516389212,
+          "first_mae_deg": 1.057015950481097
+        },
+        "Place the banana into the pot, then cover the pot with its lid": {
+          "episodes": 5,
+          "mae_deg": 2.267552042007446,
+          "first_mae_deg": 1.711937165260315
+        }
+      },
+      "episodes": [
+        {
+          "episode_index": 3,
+          "frame_index": 1575,
+          "task": "pick red and blue cube then place  them into the bowl",
+          "mae_deg": 2.6320905685424805,
+          "first_mae_deg": 0.5248672366142273,
+          "normalized_mae": 0.09984967857599258
+        },
+        {
+          "episode_index": 38,
+          "frame_index": 18825,
+          "task": "pick red and blue cube then place  them into the bowl",
+          "mae_deg": 1.8701874017715454,
+          "first_mae_deg": 0.9504287242889404,
+          "normalized_mae": 0.08152961730957031
+        },
+        {
+          "episode_index": 7,
+          "frame_index": 3731,
+          "task": "pick red and blue cube then place  them into the bowl",
+          "mae_deg": 6.58195161819458,
+          "first_mae_deg": 1.3716386556625366,
+          "normalized_mae": 0.20607802271842957
+        },
+        {
+          "episode_index": 24,
+          "frame_index": 11896,
+          "task": "pick red and blue cube then place  them into the bowl",
+          "mae_deg": 1.968505620956421,
+          "first_mae_deg": 0.6593365669250488,
+          "normalized_mae": 0.09428226202726364
+        },
+        {
+          "episode_index": 16,
+          "frame_index": 7848,
+          "task": "pick red and blue cube then place  them into the bowl",
+          "mae_deg": 3.532349109649658,
+          "first_mae_deg": 0.8488321304321289,
+          "normalized_mae": 0.1452406793832779
+        },
+        {
+          "episode_index": 94,
+          "frame_index": 36221,
+          "task": "pick banana and place it into the bowl",
+          "mae_deg": 1.5482417345046997,
+          "first_mae_deg": 0.7440028190612793,
+          "normalized_mae": 0.07379823923110962
+        },
+        {
+          "episode_index": 92,
+          "frame_index": 35770,
+          "task": "pick banana and place it into the bowl",
+          "mae_deg": 4.604090690612793,
+          "first_mae_deg": 3.0745410919189453,
+          "normalized_mae": 0.17671719193458557
+        },
+        {
+          "episode_index": 61,
+          "frame_index": 27854,
+          "task": "pick banana and place it into the bowl",
+          "mae_deg": 1.5889320373535156,
+          "first_mae_deg": 0.7998477816581726,
+          "normalized_mae": 0.07784399390220642
+        },
+        {
+          "episode_index": 84,
+          "frame_index": 34026,
+          "task": "pick banana and place it into the bowl",
+          "mae_deg": 2.8766324520111084,
+          "first_mae_deg": 2.477701425552368,
+          "normalized_mae": 0.11598243564367294
+        },
+        {
+          "episode_index": 64,
+          "frame_index": 28650,
+          "task": "pick banana and place it into the bowl",
+          "mae_deg": 1.8632971048355103,
+          "first_mae_deg": 1.1868232488632202,
+          "normalized_mae": 0.07510663568973541
+        },
+        {
+          "episode_index": 107,
+          "frame_index": 39332,
+          "task": "pick orange cube and place it into the cup",
+          "mae_deg": 1.9994791746139526,
+          "first_mae_deg": 2.692617416381836,
+          "normalized_mae": 0.09177449345588684
+        },
+        {
+          "episode_index": 123,
+          "frame_index": 43674,
+          "task": "pick orange cube and place it into the cup",
+          "mae_deg": 16.392715454101562,
+          "first_mae_deg": 0.3625293970108032,
+          "normalized_mae": 0.5836949944496155
+        },
+        {
+          "episode_index": 142,
+          "frame_index": 49349,
+          "task": "pick orange cube and place it into the cup",
+          "mae_deg": 1.8552758693695068,
+          "first_mae_deg": 0.9080214500427246,
+          "normalized_mae": 0.0998944565653801
+        },
+        {
+          "episode_index": 135,
+          "frame_index": 47125,
+          "task": "pick orange cube and place it into the cup",
+          "mae_deg": 1.8321549892425537,
+          "first_mae_deg": 0.5700893402099609,
+          "normalized_mae": 0.08255075663328171
+        },
+        {
+          "episode_index": 119,
+          "frame_index": 42644,
+          "task": "pick orange cube and place it into the cup",
+          "mae_deg": 2.8265702724456787,
+          "first_mae_deg": 1.0003271102905273,
+          "normalized_mae": 0.12998361885547638
+        },
+        {
+          "episode_index": 192,
+          "frame_index": 64406,
+          "task": "Move banana to the plate",
+          "mae_deg": 0.9182742238044739,
+          "first_mae_deg": 1.0211894512176514,
+          "normalized_mae": 0.050018105655908585
+        },
+        {
+          "episode_index": 162,
+          "frame_index": 55076,
+          "task": "Move banana to the plate",
+          "mae_deg": 3.07096266746521,
+          "first_mae_deg": 0.6907007694244385,
+          "normalized_mae": 0.13595698773860931
+        },
+        {
+          "episode_index": 188,
+          "frame_index": 63078,
+          "task": "Move banana to the plate",
+          "mae_deg": 1.691825032234192,
+          "first_mae_deg": 0.6121448874473572,
+          "normalized_mae": 0.0695478543639183
+        },
+        {
+          "episode_index": 169,
+          "frame_index": 57131,
+          "task": "Move banana to the plate",
+          "mae_deg": 6.906609535217285,
+          "first_mae_deg": 0.47472476959228516,
+          "normalized_mae": 0.30515050888061523
+        },
+        {
+          "episode_index": 187,
+          "frame_index": 62869,
+          "task": "Move banana to the plate",
+          "mae_deg": 2.618494987487793,
+          "first_mae_deg": 0.7382823824882507,
+          "normalized_mae": 0.09379995614290237
+        },
+        {
+          "episode_index": 205,
+          "frame_index": 69637,
+          "task": "Pick up one orange block and stack it on top of the other orange block.",
+          "mae_deg": 10.013741493225098,
+          "first_mae_deg": 0.528631865978241,
+          "normalized_mae": 0.3680556118488312
+        },
+        {
+          "episode_index": 225,
+          "frame_index": 78379,
+          "task": "Pick up one orange block and stack it on top of the other orange block.",
+          "mae_deg": 2.825005292892456,
+          "first_mae_deg": 1.8024951219558716,
+          "normalized_mae": 0.13165491819381714
+        },
+        {
+          "episode_index": 207,
+          "frame_index": 70521,
+          "task": "Pick up one orange block and stack it on top of the other orange block.",
+          "mae_deg": 1.7097309827804565,
+          "first_mae_deg": 0.6708443760871887,
+          "normalized_mae": 0.0850582867860794
+        },
+        {
+          "episode_index": 241,
+          "frame_index": 85048,
+          "task": "Pick up one orange block and stack it on top of the other orange block.",
+          "mae_deg": 2.454779863357544,
+          "first_mae_deg": 0.935234785079956,
+          "normalized_mae": 0.11432388424873352
+        },
+        {
+          "episode_index": 224,
+          "frame_index": 77963,
+          "task": "Pick up one orange block and stack it on top of the other orange block.",
+          "mae_deg": 2.7149734497070312,
+          "first_mae_deg": 1.1200088262557983,
+          "normalized_mae": 0.13042177259922028
+        },
+        {
+          "episode_index": 289,
+          "frame_index": 111096,
+          "task": "Open the drawer, pick up the red block, place it inside the drawer, then close the drawer",
+          "mae_deg": 1.7451963424682617,
+          "first_mae_deg": 0.390786737203598,
+          "normalized_mae": 0.0753806009888649
+        },
+        {
+          "episode_index": 250,
+          "frame_index": 89541,
+          "task": "Open the drawer, pick up the red block, place it inside the drawer, then close the drawer",
+          "mae_deg": 3.2886950969696045,
+          "first_mae_deg": 1.0928972959518433,
+          "normalized_mae": 0.1418152153491974
+        },
+        {
+          "episode_index": 255,
+          "frame_index": 92424,
+          "task": "Open the drawer, pick up the red block, place it inside the drawer, then close the drawer",
+          "mae_deg": 1.6569360494613647,
+          "first_mae_deg": 1.6327601671218872,
+          "normalized_mae": 0.08656103909015656
+        },
+        {
+          "episode_index": 292,
+          "frame_index": 112699,
+          "task": "Open the drawer, pick up the red block, place it inside the drawer, then close the drawer",
+          "mae_deg": 1.5250566005706787,
+          "first_mae_deg": 0.40380966663360596,
+          "normalized_mae": 0.07193629443645477
+        },
+        {
+          "episode_index": 291,
+          "frame_index": 112415,
+          "task": "Open the drawer, pick up the red block, place it inside the drawer, then close the drawer",
+          "mae_deg": 1.2060993909835815,
+          "first_mae_deg": 1.1211788654327393,
+          "normalized_mae": 0.060665588825941086
+        },
+        {
+          "episode_index": 316,
+          "frame_index": 131240,
+          "task": "Swap the positions of the blue and red blocks using the third empty plate",
+          "mae_deg": 1.3337898254394531,
+          "first_mae_deg": 0.7522252202033997,
+          "normalized_mae": 0.06204213574528694
+        },
+        {
+          "episode_index": 318,
+          "frame_index": 132856,
+          "task": "Swap the positions of the blue and red blocks using the third empty plate",
+          "mae_deg": 1.2498466968536377,
+          "first_mae_deg": 0.8825873732566833,
+          "normalized_mae": 0.07360196858644485
+        },
+        {
+          "episode_index": 339,
+          "frame_index": 148105,
+          "task": "Swap the positions of the blue and red blocks using the third empty plate",
+          "mae_deg": 2.706700086593628,
+          "first_mae_deg": 0.2253294736146927,
+          "normalized_mae": 0.128041073679924
+        },
+        {
+          "episode_index": 347,
+          "frame_index": 153371,
+          "task": "Swap the positions of the blue and red blocks using the third empty plate",
+          "mae_deg": 1.8214654922485352,
+          "first_mae_deg": 1.0214920043945312,
+          "normalized_mae": 0.0619678869843483
+        },
+        {
+          "episode_index": 341,
+          "frame_index": 149830,
+          "task": "Swap the positions of the blue and red blocks using the third empty plate",
+          "mae_deg": 3.3371357917785645,
+          "first_mae_deg": 1.7585142850875854,
+          "normalized_mae": 0.1561395525932312
+        },
+        {
+          "episode_index": 354,
+          "frame_index": 157930,
+          "task": "place the blue on top of the orange block, then place the red block on top of the stacked blocks",
+          "mae_deg": 1.1156986951828003,
+          "first_mae_deg": 0.7251977324485779,
+          "normalized_mae": 0.06397033482789993
+        },
+        {
+          "episode_index": 380,
+          "frame_index": 174149,
+          "task": "place the blue on top of the orange block, then place the red block on top of the stacked blocks",
+          "mae_deg": 1.0811386108398438,
+          "first_mae_deg": 0.2931331694126129,
+          "normalized_mae": 0.05978852137923241
+        },
+        {
+          "episode_index": 398,
+          "frame_index": 184462,
+          "task": "place the blue on top of the orange block, then place the red block on top of the stacked blocks",
+          "mae_deg": 4.119422435760498,
+          "first_mae_deg": 2.1386473178863525,
+          "normalized_mae": 0.1553875356912613
+        },
+        {
+          "episode_index": 397,
+          "frame_index": 183626,
+          "task": "place the blue on top of the orange block, then place the red block on top of the stacked blocks",
+          "mae_deg": 0.8870859742164612,
+          "first_mae_deg": 0.8559519648551941,
+          "normalized_mae": 0.03993946686387062
+        },
+        {
+          "episode_index": 374,
+          "frame_index": 170776,
+          "task": "place the blue on top of the orange block, then place the red block on top of the stacked blocks",
+          "mae_deg": 3.185856580734253,
+          "first_mae_deg": 1.5279130935668945,
+          "normalized_mae": 0.16767315566539764
+        },
+        {
+          "episode_index": 395,
+          "frame_index": 182550,
+          "task": "place the blue on top of the orange block, then place the red block on top of the stacked blocks",
+          "mae_deg": 1.7974640130996704,
+          "first_mae_deg": 0.8012524247169495,
+          "normalized_mae": 0.11819920688867569
+        },
+        {
+          "episode_index": 441,
+          "frame_index": 213673,
+          "task": "Place the banana into the pot, then cover the pot with its lid",
+          "mae_deg": 2.6189815998077393,
+          "first_mae_deg": 2.781418561935425,
+          "normalized_mae": 0.11336041986942291
+        },
+        {
+          "episode_index": 443,
+          "frame_index": 214775,
+          "task": "Place the banana into the pot, then cover the pot with its lid",
+          "mae_deg": 2.141636848449707,
+          "first_mae_deg": 1.1589187383651733,
+          "normalized_mae": 0.11899387091398239
+        },
+        {
+          "episode_index": 446,
+          "frame_index": 216331,
+          "task": "Place the banana into the pot, then cover the pot with its lid",
+          "mae_deg": 1.941724419593811,
+          "first_mae_deg": 1.1661678552627563,
+          "normalized_mae": 0.0751413106918335
+        },
+        {
+          "episode_index": 413,
+          "frame_index": 194496,
+          "task": "Place the banana into the pot, then cover the pot with its lid",
+          "mae_deg": 2.7888646125793457,
+          "first_mae_deg": 1.9735994338989258,
+          "normalized_mae": 0.1143713891506195
+        },
+        {
+          "episode_index": 432,
+          "frame_index": 207690,
+          "task": "Place the banana into the pot, then cover the pot with its lid",
+          "mae_deg": 1.8465527296066284,
+          "first_mae_deg": 1.4795812368392944,
+          "normalized_mae": 0.08341994881629944
+        }
+      ],
+      "name": "ai20k"
+    },
+    {
       "checkpoint": "/Users/Apple/Project/Vin/checkpoints/010000/pretrained_model",
       "step": 10000,
       "mae_deg": 9.00860479603643,
@@ -427,7 +852,8 @@
           "first_mae_deg": 2.097470760345459,
           "normalized_mae": 0.4697916805744171
         }
-      ]
+      ],
+      "name": "10k"
     },
     {
       "checkpoint": "/Users/Apple/Project/Vin/checkpoints/020000/pretrained_model",
@@ -851,7 +1277,8 @@
           "first_mae_deg": 2.2258803844451904,
           "normalized_mae": 0.36458635330200195
         }
-      ]
+      ],
+      "name": "20k"
     }
   ]
 }
