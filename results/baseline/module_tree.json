@@ -1,0 +1,4377 @@
+{
+  "weight_file": "checkpoints/raw/smolvla/base/model.safetensors",
+  "tensors": 500,
+  "parameters": 450046176,
+  "subsystems": {
+    "action_in_proj": {
+      "tensors": 2,
+      "parameters": 23760,
+      "bytes": 95040
+    },
+    "action_out_proj": {
+      "tensors": 2,
+      "parameters": 23072,
+      "bytes": 92288
+    },
+    "action_time_mlp": {
+      "tensors": 4,
+      "parameters": 1556640,
+      "bytes": 6226560
+    },
+    "state_proj": {
+      "tensors": 2,
+      "parameters": 31680,
+      "bytes": 126720
+    },
+    "normalization": {
+      "tensors": 66,
+      "parameters": 55440,
+      "bytes": 110880
+    },
+    "expert_mlp": {
+      "tensors": 48,
+      "parameters": 70778880,
+      "bytes": 141557760
+    },
+    "expert_attention": {
+      "tensors": 64,
+      "parameters": 27443200,
+      "bytes": 58163200
+    },
+    "embeddings": {
+      "tensors": 2,
+      "parameters": 94617600,
+      "bytes": 189235200
+    },
+    "connector": {
+      "tensors": 1,
+      "parameters": 11796480,
+      "bytes": 23592960
+    },
+    "vlm_mlp": {
+      "tensors": 48,
+      "parameters": 117964800,
+      "bytes": 235929600
+    },
+    "vlm_attention": {
+      "tensors": 64,
+      "parameters": 39321600,
+      "bytes": 78643200
+    },
+    "vision": {
+      "tensors": 197,
+      "parameters": 86433024,
+      "bytes": 172866048
+    }
+  },
+  "layers": [
+    {
+      "name": "model.action_in_proj.bias",
+      "shape": [
+        720
+      ],
+      "dtype": "float32",
+      "parameters": 720
+    },
+    {
+      "name": "model.action_in_proj.weight",
+      "shape": [
+        720,
+        32
+      ],
+      "dtype": "float32",
+      "parameters": 23040
+    },
+    {
+      "name": "model.action_out_proj.bias",
+      "shape": [
+        32
+      ],
+      "dtype": "float32",
+      "parameters": 32
+    },
+    {
+      "name": "model.action_out_proj.weight",
+      "shape": [
+        32,
+        720
+      ],
+      "dtype": "float32",
+      "parameters": 23040
+    },
+    {
+      "name": "model.action_time_mlp_in.bias",
+      "shape": [
+        720
+      ],
+      "dtype": "float32",
+      "parameters": 720
+    },
+    {
+      "name": "model.action_time_mlp_in.weight",
+      "shape": [
+        720,
+        1440
+      ],
+      "dtype": "float32",
+      "parameters": 1036800
+    },
+    {
+      "name": "model.action_time_mlp_out.bias",
+      "shape": [
+        720
+      ],
+      "dtype": "float32",
+      "parameters": 720
+    },
+    {
+      "name": "model.action_time_mlp_out.weight",
+      "shape": [
+        720,
+        720
+      ],
+      "dtype": "float32",
+      "parameters": 518400
+    },
+    {
+      "name": "model.state_proj.bias",
+      "shape": [
+        960
+      ],
+      "dtype": "float32",
+      "parameters": 960
+    },
+    {
+      "name": "model.state_proj.weight",
+      "shape": [
+        960,
+        32
+      ],
+      "dtype": "float32",
+      "parameters": 30720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.0.input_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.0.mlp.down_proj.weight",
+      "shape": [
+        720,
+        2048
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.0.mlp.gate_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.0.mlp.up_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.0.post_attention_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.0.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 230400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.0.self_attn.o_proj.weight",
+      "shape": [
+        720,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.0.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.0.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 230400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.1.input_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.1.mlp.down_proj.weight",
+      "shape": [
+        720,
+        2048
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.1.mlp.gate_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.1.mlp.up_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.1.post_attention_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.1.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        320
+      ],
+      "dtype": "float32",
+      "parameters": 102400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.1.self_attn.o_proj.weight",
+      "shape": [
+        720,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.1.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.1.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        320
+      ],
+      "dtype": "float32",
+      "parameters": 102400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.10.input_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.10.mlp.down_proj.weight",
+      "shape": [
+        720,
+        2048
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.10.mlp.gate_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.10.mlp.up_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.10.post_attention_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.10.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 230400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.10.self_attn.o_proj.weight",
+      "shape": [
+        720,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.10.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.10.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 230400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.11.input_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.11.mlp.down_proj.weight",
+      "shape": [
+        720,
+        2048
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.11.mlp.gate_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.11.mlp.up_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.11.post_attention_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.11.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        320
+      ],
+      "dtype": "float32",
+      "parameters": 102400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.11.self_attn.o_proj.weight",
+      "shape": [
+        720,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.11.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.11.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        320
+      ],
+      "dtype": "float32",
+      "parameters": 102400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.12.input_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.12.mlp.down_proj.weight",
+      "shape": [
+        720,
+        2048
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.12.mlp.gate_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.12.mlp.up_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.12.post_attention_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.12.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 230400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.12.self_attn.o_proj.weight",
+      "shape": [
+        720,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.12.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.12.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 230400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.13.input_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.13.mlp.down_proj.weight",
+      "shape": [
+        720,
+        2048
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.13.mlp.gate_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.13.mlp.up_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.13.post_attention_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.13.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        320
+      ],
+      "dtype": "float32",
+      "parameters": 102400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.13.self_attn.o_proj.weight",
+      "shape": [
+        720,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.13.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.13.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        320
+      ],
+      "dtype": "float32",
+      "parameters": 102400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.14.input_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.14.mlp.down_proj.weight",
+      "shape": [
+        720,
+        2048
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.14.mlp.gate_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.14.mlp.up_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.14.post_attention_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.14.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 230400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.14.self_attn.o_proj.weight",
+      "shape": [
+        720,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.14.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.14.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 230400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.15.input_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.15.mlp.down_proj.weight",
+      "shape": [
+        720,
+        2048
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.15.mlp.gate_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.15.mlp.up_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.15.post_attention_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.15.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        320
+      ],
+      "dtype": "float32",
+      "parameters": 102400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.15.self_attn.o_proj.weight",
+      "shape": [
+        720,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.15.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.15.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        320
+      ],
+      "dtype": "float32",
+      "parameters": 102400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.2.input_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.2.mlp.down_proj.weight",
+      "shape": [
+        720,
+        2048
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.2.mlp.gate_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.2.mlp.up_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.2.post_attention_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.2.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 230400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.2.self_attn.o_proj.weight",
+      "shape": [
+        720,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.2.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.2.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 230400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.3.input_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.3.mlp.down_proj.weight",
+      "shape": [
+        720,
+        2048
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.3.mlp.gate_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.3.mlp.up_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.3.post_attention_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.3.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        320
+      ],
+      "dtype": "float32",
+      "parameters": 102400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.3.self_attn.o_proj.weight",
+      "shape": [
+        720,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.3.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.3.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        320
+      ],
+      "dtype": "float32",
+      "parameters": 102400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.4.input_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.4.mlp.down_proj.weight",
+      "shape": [
+        720,
+        2048
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.4.mlp.gate_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.4.mlp.up_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.4.post_attention_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.4.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 230400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.4.self_attn.o_proj.weight",
+      "shape": [
+        720,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.4.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.4.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 230400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.5.input_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.5.mlp.down_proj.weight",
+      "shape": [
+        720,
+        2048
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.5.mlp.gate_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.5.mlp.up_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.5.post_attention_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.5.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        320
+      ],
+      "dtype": "float32",
+      "parameters": 102400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.5.self_attn.o_proj.weight",
+      "shape": [
+        720,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.5.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.5.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        320
+      ],
+      "dtype": "float32",
+      "parameters": 102400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.6.input_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.6.mlp.down_proj.weight",
+      "shape": [
+        720,
+        2048
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.6.mlp.gate_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.6.mlp.up_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.6.post_attention_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.6.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 230400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.6.self_attn.o_proj.weight",
+      "shape": [
+        720,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.6.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.6.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 230400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.7.input_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.7.mlp.down_proj.weight",
+      "shape": [
+        720,
+        2048
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.7.mlp.gate_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.7.mlp.up_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.7.post_attention_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.7.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        320
+      ],
+      "dtype": "float32",
+      "parameters": 102400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.7.self_attn.o_proj.weight",
+      "shape": [
+        720,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.7.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.7.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        320
+      ],
+      "dtype": "float32",
+      "parameters": 102400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.8.input_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.8.mlp.down_proj.weight",
+      "shape": [
+        720,
+        2048
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.8.mlp.gate_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.8.mlp.up_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.8.post_attention_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.8.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 230400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.8.self_attn.o_proj.weight",
+      "shape": [
+        720,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.8.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.8.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 230400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.9.input_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.9.mlp.down_proj.weight",
+      "shape": [
+        720,
+        2048
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.9.mlp.gate_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.9.mlp.up_proj.weight",
+      "shape": [
+        2048,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 1474560
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.9.post_attention_layernorm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.9.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        320
+      ],
+      "dtype": "float32",
+      "parameters": 102400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.9.self_attn.o_proj.weight",
+      "shape": [
+        720,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.9.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 691200
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.layers.9.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        320
+      ],
+      "dtype": "float32",
+      "parameters": 102400
+    },
+    {
+      "name": "model.vlm_with_expert.lm_expert.norm.weight",
+      "shape": [
+        720
+      ],
+      "dtype": "bfloat16",
+      "parameters": 720
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.lm_head.weight",
+      "shape": [
+        49280,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 47308800
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.connector.modality_projection.proj.weight",
+      "shape": [
+        960,
+        12288
+      ],
+      "dtype": "bfloat16",
+      "parameters": 11796480
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.embed_tokens.weight",
+      "shape": [
+        49280,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 47308800
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.0.input_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.0.mlp.down_proj.weight",
+      "shape": [
+        960,
+        2560
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.0.mlp.gate_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.0.mlp.up_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.0.post_attention_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.0.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.0.self_attn.o_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.0.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.0.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.1.input_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.1.mlp.down_proj.weight",
+      "shape": [
+        960,
+        2560
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.1.mlp.gate_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.1.mlp.up_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.1.post_attention_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.1.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.1.self_attn.o_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.1.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.1.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.10.input_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.10.mlp.down_proj.weight",
+      "shape": [
+        960,
+        2560
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.10.mlp.gate_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.10.mlp.up_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.10.post_attention_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.10.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.10.self_attn.o_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.10.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.10.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.11.input_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.11.mlp.down_proj.weight",
+      "shape": [
+        960,
+        2560
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.11.mlp.gate_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.11.mlp.up_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.11.post_attention_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.11.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.11.self_attn.o_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.11.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.11.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.12.input_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.12.mlp.down_proj.weight",
+      "shape": [
+        960,
+        2560
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.12.mlp.gate_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.12.mlp.up_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.12.post_attention_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.12.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.12.self_attn.o_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.12.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.12.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.13.input_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.13.mlp.down_proj.weight",
+      "shape": [
+        960,
+        2560
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.13.mlp.gate_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.13.mlp.up_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.13.post_attention_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.13.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.13.self_attn.o_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.13.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.13.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.14.input_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.14.mlp.down_proj.weight",
+      "shape": [
+        960,
+        2560
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.14.mlp.gate_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.14.mlp.up_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.14.post_attention_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.14.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.14.self_attn.o_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.14.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.14.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.15.input_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.15.mlp.down_proj.weight",
+      "shape": [
+        960,
+        2560
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.15.mlp.gate_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.15.mlp.up_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.15.post_attention_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.15.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.15.self_attn.o_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.15.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.15.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.2.input_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.2.mlp.down_proj.weight",
+      "shape": [
+        960,
+        2560
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.2.mlp.gate_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.2.mlp.up_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.2.post_attention_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.2.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.2.self_attn.o_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.2.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.2.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.3.input_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.3.mlp.down_proj.weight",
+      "shape": [
+        960,
+        2560
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.3.mlp.gate_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.3.mlp.up_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.3.post_attention_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.3.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.3.self_attn.o_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.3.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.3.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.4.input_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.4.mlp.down_proj.weight",
+      "shape": [
+        960,
+        2560
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.4.mlp.gate_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.4.mlp.up_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.4.post_attention_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.4.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.4.self_attn.o_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.4.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.4.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.5.input_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.5.mlp.down_proj.weight",
+      "shape": [
+        960,
+        2560
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.5.mlp.gate_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.5.mlp.up_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.5.post_attention_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.5.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.5.self_attn.o_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.5.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.5.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.6.input_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.6.mlp.down_proj.weight",
+      "shape": [
+        960,
+        2560
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.6.mlp.gate_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.6.mlp.up_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.6.post_attention_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.6.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.6.self_attn.o_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.6.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.6.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.7.input_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.7.mlp.down_proj.weight",
+      "shape": [
+        960,
+        2560
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.7.mlp.gate_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.7.mlp.up_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.7.post_attention_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.7.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.7.self_attn.o_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.7.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.7.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.8.input_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.8.mlp.down_proj.weight",
+      "shape": [
+        960,
+        2560
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.8.mlp.gate_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.8.mlp.up_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.8.post_attention_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.8.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.8.self_attn.o_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.8.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.8.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.9.input_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.9.mlp.down_proj.weight",
+      "shape": [
+        960,
+        2560
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.9.mlp.gate_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.9.mlp.up_proj.weight",
+      "shape": [
+        2560,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2457600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.9.post_attention_layernorm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.9.self_attn.k_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.9.self_attn.o_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.9.self_attn.q_proj.weight",
+      "shape": [
+        960,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 921600
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.layers.9.self_attn.v_proj.weight",
+      "shape": [
+        320,
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 307200
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.text_model.norm.weight",
+      "shape": [
+        960
+      ],
+      "dtype": "bfloat16",
+      "parameters": 960
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.embeddings.patch_embedding.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.embeddings.patch_embedding.weight",
+      "shape": [
+        768,
+        3,
+        16,
+        16
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.embeddings.position_embedding.weight",
+      "shape": [
+        1024,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 786432
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.0.layer_norm1.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.0.layer_norm1.weight",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.0.layer_norm2.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.0.layer_norm2.weight",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.0.mlp.fc1.bias",
+      "shape": [
+        3072
+      ],
+      "dtype": "bfloat16",
+      "parameters": 3072
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.0.mlp.fc1.weight",
+      "shape": [
+        3072,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2359296
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.0.mlp.fc2.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.0.mlp.fc2.weight",
+      "shape": [
+        768,
+        3072
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2359296
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.0.self_attn.k_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.0.self_attn.k_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.0.self_attn.out_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.0.self_attn.out_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.0.self_attn.q_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.0.self_attn.q_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.0.self_attn.v_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.0.self_attn.v_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.1.layer_norm1.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.1.layer_norm1.weight",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.1.layer_norm2.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.1.layer_norm2.weight",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.1.mlp.fc1.bias",
+      "shape": [
+        3072
+      ],
+      "dtype": "bfloat16",
+      "parameters": 3072
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.1.mlp.fc1.weight",
+      "shape": [
+        3072,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2359296
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.1.mlp.fc2.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.1.mlp.fc2.weight",
+      "shape": [
+        768,
+        3072
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2359296
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.1.self_attn.k_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.1.self_attn.k_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.1.self_attn.out_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.1.self_attn.out_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.1.self_attn.q_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.1.self_attn.q_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.1.self_attn.v_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.1.self_attn.v_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.10.layer_norm1.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.10.layer_norm1.weight",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.10.layer_norm2.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.10.layer_norm2.weight",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.10.mlp.fc1.bias",
+      "shape": [
+        3072
+      ],
+      "dtype": "bfloat16",
+      "parameters": 3072
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.10.mlp.fc1.weight",
+      "shape": [
+        3072,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2359296
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.10.mlp.fc2.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.10.mlp.fc2.weight",
+      "shape": [
+        768,
+        3072
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2359296
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.10.self_attn.k_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.10.self_attn.k_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.10.self_attn.out_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.10.self_attn.out_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.10.self_attn.q_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.10.self_attn.q_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.10.self_attn.v_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.10.self_attn.v_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.11.layer_norm1.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.11.layer_norm1.weight",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.11.layer_norm2.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.11.layer_norm2.weight",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.11.mlp.fc1.bias",
+      "shape": [
+        3072
+      ],
+      "dtype": "bfloat16",
+      "parameters": 3072
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.11.mlp.fc1.weight",
+      "shape": [
+        3072,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2359296
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.11.mlp.fc2.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.11.mlp.fc2.weight",
+      "shape": [
+        768,
+        3072
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2359296
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.11.self_attn.k_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.11.self_attn.k_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.11.self_attn.out_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.11.self_attn.out_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.11.self_attn.q_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.11.self_attn.q_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.11.self_attn.v_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.11.self_attn.v_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.2.layer_norm1.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.2.layer_norm1.weight",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.2.layer_norm2.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.2.layer_norm2.weight",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.2.mlp.fc1.bias",
+      "shape": [
+        3072
+      ],
+      "dtype": "bfloat16",
+      "parameters": 3072
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.2.mlp.fc1.weight",
+      "shape": [
+        3072,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2359296
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.2.mlp.fc2.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.2.mlp.fc2.weight",
+      "shape": [
+        768,
+        3072
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2359296
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.2.self_attn.k_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.2.self_attn.k_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.2.self_attn.out_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.2.self_attn.out_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.2.self_attn.q_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.2.self_attn.q_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.2.self_attn.v_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.2.self_attn.v_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.3.layer_norm1.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.3.layer_norm1.weight",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.3.layer_norm2.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.3.layer_norm2.weight",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.3.mlp.fc1.bias",
+      "shape": [
+        3072
+      ],
+      "dtype": "bfloat16",
+      "parameters": 3072
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.3.mlp.fc1.weight",
+      "shape": [
+        3072,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2359296
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.3.mlp.fc2.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.3.mlp.fc2.weight",
+      "shape": [
+        768,
+        3072
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2359296
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.3.self_attn.k_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.3.self_attn.k_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.3.self_attn.out_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.3.self_attn.out_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.3.self_attn.q_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.3.self_attn.q_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.3.self_attn.v_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.3.self_attn.v_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.4.layer_norm1.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.4.layer_norm1.weight",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.4.layer_norm2.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.4.layer_norm2.weight",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.4.mlp.fc1.bias",
+      "shape": [
+        3072
+      ],
+      "dtype": "bfloat16",
+      "parameters": 3072
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.4.mlp.fc1.weight",
+      "shape": [
+        3072,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2359296
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.4.mlp.fc2.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.4.mlp.fc2.weight",
+      "shape": [
+        768,
+        3072
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2359296
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.4.self_attn.k_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.4.self_attn.k_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.4.self_attn.out_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.4.self_attn.out_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.4.self_attn.q_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.4.self_attn.q_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.4.self_attn.v_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.4.self_attn.v_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.5.layer_norm1.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.5.layer_norm1.weight",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.5.layer_norm2.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.5.layer_norm2.weight",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.5.mlp.fc1.bias",
+      "shape": [
+        3072
+      ],
+      "dtype": "bfloat16",
+      "parameters": 3072
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.5.mlp.fc1.weight",
+      "shape": [
+        3072,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2359296
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.5.mlp.fc2.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.5.mlp.fc2.weight",
+      "shape": [
+        768,
+        3072
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2359296
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.5.self_attn.k_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.5.self_attn.k_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.5.self_attn.out_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.5.self_attn.out_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.5.self_attn.q_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.5.self_attn.q_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.5.self_attn.v_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.5.self_attn.v_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.6.layer_norm1.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.6.layer_norm1.weight",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.6.layer_norm2.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.6.layer_norm2.weight",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.6.mlp.fc1.bias",
+      "shape": [
+        3072
+      ],
+      "dtype": "bfloat16",
+      "parameters": 3072
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.6.mlp.fc1.weight",
+      "shape": [
+        3072,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2359296
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.6.mlp.fc2.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.6.mlp.fc2.weight",
+      "shape": [
+        768,
+        3072
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2359296
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.6.self_attn.k_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.6.self_attn.k_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.6.self_attn.out_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.6.self_attn.out_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.6.self_attn.q_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.6.self_attn.q_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.6.self_attn.v_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.6.self_attn.v_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.7.layer_norm1.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.7.layer_norm1.weight",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.7.layer_norm2.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.7.layer_norm2.weight",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.7.mlp.fc1.bias",
+      "shape": [
+        3072
+      ],
+      "dtype": "bfloat16",
+      "parameters": 3072
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.7.mlp.fc1.weight",
+      "shape": [
+        3072,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2359296
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.7.mlp.fc2.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.7.mlp.fc2.weight",
+      "shape": [
+        768,
+        3072
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2359296
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.7.self_attn.k_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.7.self_attn.k_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.7.self_attn.out_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.7.self_attn.out_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.7.self_attn.q_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.7.self_attn.q_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.7.self_attn.v_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.7.self_attn.v_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.8.layer_norm1.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.8.layer_norm1.weight",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.8.layer_norm2.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.8.layer_norm2.weight",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.8.mlp.fc1.bias",
+      "shape": [
+        3072
+      ],
+      "dtype": "bfloat16",
+      "parameters": 3072
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.8.mlp.fc1.weight",
+      "shape": [
+        3072,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2359296
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.8.mlp.fc2.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.8.mlp.fc2.weight",
+      "shape": [
+        768,
+        3072
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2359296
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.8.self_attn.k_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.8.self_attn.k_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.8.self_attn.out_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.8.self_attn.out_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.8.self_attn.q_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.8.self_attn.q_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.8.self_attn.v_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.8.self_attn.v_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.9.layer_norm1.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.9.layer_norm1.weight",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.9.layer_norm2.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.9.layer_norm2.weight",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.9.mlp.fc1.bias",
+      "shape": [
+        3072
+      ],
+      "dtype": "bfloat16",
+      "parameters": 3072
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.9.mlp.fc1.weight",
+      "shape": [
+        3072,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2359296
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.9.mlp.fc2.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.9.mlp.fc2.weight",
+      "shape": [
+        768,
+        3072
+      ],
+      "dtype": "bfloat16",
+      "parameters": 2359296
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.9.self_attn.k_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.9.self_attn.k_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.9.self_attn.out_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.9.self_attn.out_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.9.self_attn.q_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.9.self_attn.q_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.9.self_attn.v_proj.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.9.self_attn.v_proj.weight",
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 589824
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.post_layernorm.bias",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    },
+    {
+      "name": "model.vlm_with_expert.vlm.model.vision_model.post_layernorm.weight",
+      "shape": [
+        768
+      ],
+      "dtype": "bfloat16",
+      "parameters": 768
+    }
+  ]
+}

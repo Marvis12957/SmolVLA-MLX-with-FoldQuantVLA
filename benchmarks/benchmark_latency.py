@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "benchmarks"))
 sys.path.insert(0, str(ROOT / "models" / "smolvla"))
 from deployment.session import InferenceSession, synthetic_observation
-from metrics import latency_report, write_report
+from metrics import assert_metal, latency_report, write_report
 
 
 def main(argv: list[str] | None = None) -> None:
@@ -20,10 +20,11 @@ def main(argv: list[str] | None = None) -> None:
     parser.add_argument("--artifact", default="checkpoints/raw/smolvla/base")
     parser.add_argument("--dtype", default="bfloat16")
     parser.add_argument("--steps", type=int, default=10)
-    parser.add_argument("--warmups", type=int, default=2)
-    parser.add_argument("--iterations", type=int, default=10)
-    parser.add_argument("--output", default="results/smolvla_mlx/latency.json")
+    parser.add_argument("--warmups", type=int, default=10)
+    parser.add_argument("--iterations", type=int, default=100)
+    parser.add_argument("--output", default="results/baseline/latency_bf16.json")
     args = parser.parse_args(argv)
+    assert_metal()
     session = InferenceSession(args.artifact, dtype=args.dtype)
     session.runtime.num_steps = args.steps
     observation = synthetic_observation(0)

@@ -1,0 +1,10 @@
+{
+  "seed": 2,
+  "task": "pick up the block",
+  "steps": 10,
+  "checkpoint": "checkpoints/raw/smolvla/base",
+  "image_masks": [
+    true,
+    true
+  ]
+}

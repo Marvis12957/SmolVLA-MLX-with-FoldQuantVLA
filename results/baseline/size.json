@@ -1,0 +1,9 @@
+{
+  "commit": "0970d8cf6f44a01cf81f808fad34c021cc6ebc9f",
+  "parameters": 450046176,
+  "effective_bpw_raw": 16.117679800039006,
+  "files": {
+    "checkpoints/raw/smolvla/base/model.safetensors": 906712520,
+    "checkpoints/mlx/smolvla/bf16/weights.safetensors": 906712578
+  }
+}

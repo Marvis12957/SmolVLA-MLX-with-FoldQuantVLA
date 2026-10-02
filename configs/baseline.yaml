@@ -1,0 +1,18 @@
+model:
+  repo_id: lerobot/smolvla_base
+  revision: d9f33c94a60fb382c90dea2164c96845bd955e28
+  local: checkpoints/raw/smolvla/base
+runtime:
+  backend: mlx
+  dtype: bfloat16
+  num_steps: 10
+  chunk_size: 50
+  batch_size: 1
+benchmark:
+  warmups: 10
+  iterations: 100
+  seed: 0
+  task: pick up the block
+fidelity:
+  min_cosine: 0.999
+  reference: pytorch_fp32

@@ -117,6 +117,7 @@ class PolicyProcessor:
         self.rename_map = self._find_rename_map()
         self.image_features = tuple(image_features)
         self.empty_cameras = int(empty_cameras)
+        self._tokenizer = None
 
     @classmethod
     def from_pretrained(cls, path: str | Path) -> "PolicyProcessor":
@@ -206,13 +207,13 @@ class PolicyProcessor:
 
     def tokenize(self, task: str) -> tuple[np.ndarray, np.ndarray]:
         """Use the checkpoint tokenizer when transformers is installed."""
-        try:
-            from transformers import AutoTokenizer
-        except ImportError as exc:  # pragma: no cover - environment dependent
-            raise RuntimeError("Tokenization requires the 'reference' dependency extra.") from exc
-        tokenizer_name = "HuggingFaceTB/SmolVLM2-500M-Video-Instruct"
-        tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
-        encoded = tokenizer(task + "\n", max_length=TOKENIZER_MAX_LENGTH, padding="max_length", truncation=True)
+        if self._tokenizer is None:
+            try:
+                from transformers import AutoTokenizer
+            except ImportError as exc:  # pragma: no cover - environment dependent
+                raise RuntimeError("Tokenization requires the 'reference' dependency extra.") from exc
+            self._tokenizer = AutoTokenizer.from_pretrained("HuggingFaceTB/SmolVLM2-500M-Video-Instruct")
+        encoded = self._tokenizer(task + "\n", max_length=TOKENIZER_MAX_LENGTH, padding="max_length", truncation=True)
         return np.asarray(encoded["input_ids"], dtype=np.int32), np.asarray(encoded["attention_mask"], dtype=np.bool_)
 
     def prepare(self, observation: Mapping[str, Any], task: str) -> ProcessedObservation:

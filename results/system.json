@@ -1,0 +1,130 @@
+{
+  "chip": "Apple M4 Max",
+  "memory_gb": 36,
+  "macos": "27.0.1",
+  "mlx_version": "0.32.3",
+  "python": "3.12.13",
+  "metal_available": true,
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "commit": "0970d8cf6f44a01cf81f808fad34c021cc6ebc9f",
+  "mlx_quantization": {
+    "QuantizedLinear": {
+      "available": true,
+      "signature": "(input_dims: int, output_dims: int, bias: bool = True, group_size: int = None, bits: int = None, mode: str = 'affine')"
+    },
+    "quantize_module": {
+      "available": true,
+      "signature": "(model: mlx.nn.layers.base.Module, group_size: int = None, bits: int = None, *, mode: str = 'affine', quantize_input: bool = False, class_predicate: Optional[Callable[[str, mlx.nn.layers.base.Module], Union[bool, dict]]] = None)"
+    },
+    "quantize": {
+      "available": true,
+      "signature": "(*args, **kwargs)"
+    },
+    "quantized_matmul": {
+      "available": true,
+      "signature": "(*args, **kwargs)"
+    },
+    "hadamard_transform": {
+      "available": true,
+      "signature": "(*args, **kwargs)"
+    },
+    "QQLinear": {
+      "available": true,
+      "signature": "(input_dims: int, output_dims: int, group_size: int = None, bits: int = None, mode: str = 'nvfp4')"
+    },
+    "qqmm": {
+      "available": true,
+      "signature": "(*args, **kwargs)"
+    },
+    "quantized_linear_bits": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      8
+    ],
+    "quantized_linear_group_sizes": [
+      32,
+      64,
+      128
+    ],
+    "reset_peak_memory": {
+      "available": true,
+      "signature": "(*args, **kwargs)"
+    },
+    "get_peak_memory": {
+      "available": true,
+      "signature": "(*args, **kwargs)"
+    },
+    "get_active_memory": {
+      "available": true,
+      "signature": "(*args, **kwargs)"
+    }
+  },
+  "checkpoint": "checkpoints/raw/smolvla/base",
+  "parameters": 450046176,
+  "tensors": 500,
+  "subsystems": {
+    "action_in_proj": {
+      "tensors": 2,
+      "parameters": 23760,
+      "bytes": 95040
+    },
+    "action_out_proj": {
+      "tensors": 2,
+      "parameters": 23072,
+      "bytes": 92288
+    },
+    "action_time_mlp": {
+      "tensors": 4,
+      "parameters": 1556640,
+      "bytes": 6226560
+    },
+    "state_proj": {
+      "tensors": 2,
+      "parameters": 31680,
+      "bytes": 126720
+    },
+    "normalization": {
+      "tensors": 66,
+      "parameters": 55440,
+      "bytes": 110880
+    },
+    "expert_mlp": {
+      "tensors": 48,
+      "parameters": 70778880,
+      "bytes": 141557760
+    },
+    "expert_attention": {
+      "tensors": 64,
+      "parameters": 27443200,
+      "bytes": 58163200
+    },
+    "embeddings": {
+      "tensors": 2,
+      "parameters": 94617600,
+      "bytes": 189235200
+    },
+    "connector": {
+      "tensors": 1,
+      "parameters": 11796480,
+      "bytes": 23592960
+    },
+    "vlm_mlp": {
+      "tensors": 48,
+      "parameters": 117964800,
+      "bytes": 235929600
+    },
+    "vlm_attention": {
+      "tensors": 64,
+      "parameters": 39321600,
+      "bytes": 78643200
+    },
+    "vision": {
+      "tensors": 197,
+      "parameters": 86433024,
+      "bytes": 172866048
+    }
+  }
+}

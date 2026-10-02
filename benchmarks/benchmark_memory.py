@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "benchmarks"))
 sys.path.insert(0, str(ROOT / "models" / "smolvla"))
 from deployment.session import InferenceSession, synthetic_observation
-from metrics import write_report
+from metrics import assert_metal, mlx_memory_bytes, reset_mlx_peak_memory, write_report
 
 
 def main(argv: list[str] | None = None) -> None:
@@ -20,18 +20,20 @@ def main(argv: list[str] | None = None) -> None:
     parser.add_argument("--artifact", default="checkpoints/raw/smolvla/base")
     parser.add_argument("--dtype", default="bfloat16")
     parser.add_argument("--steps", type=int, default=10)
-    parser.add_argument("--output", default="results/smolvla_mlx/memory.json")
+    parser.add_argument("--output", default="results/baseline/memory_bf16.json")
     args = parser.parse_args(argv)
-    mx.metal.reset_peak_memory()
+    assert_metal()
+    reset_mlx_peak_memory()
     session = InferenceSession(args.artifact, dtype=args.dtype)
     session.runtime.num_steps = args.steps
     actions = session.predict(synthetic_observation(0), "pick up the block", seed=0)
     mx.eval(mx.array(actions))
+    peak_bytes, active_bytes = mlx_memory_bytes()
     payload = {
         "dtype": args.dtype,
         "steps": args.steps,
-        "peak_bytes": int(mx.metal.get_peak_memory()),
-        "active_bytes": int(mx.metal.get_active_memory()),
+        "peak_bytes": peak_bytes,
+        "active_bytes": active_bytes,
         "action_shape": list(actions.shape),
     }
     path = write_report(Path(args.output).parent, Path(args.output).name, payload)
