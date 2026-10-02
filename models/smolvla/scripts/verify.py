@@ -76,6 +76,10 @@ def _compare_pytorch(args: argparse.Namespace) -> dict:
     session.runtime.num_steps = args.steps
     mlx_normalized = session.predict_normalized(raw, args.task, noise=noise)
     observation = _chw_observation(raw)
+    observation = {
+        key: torch.from_numpy(np.asarray(value)) if isinstance(value, np.ndarray) else value
+        for key, value in observation.items()
+    }
     observation["task"] = args.task
 
     policy = SmolVLAPolicy.from_pretrained(str(args.artifact)).float().to("cpu")
