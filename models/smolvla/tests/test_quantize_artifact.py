@@ -92,6 +92,20 @@ def test_mlx_w8_uses_group_affine_and_skips_expert_width(tmp_path: Path):
     assert manifest["layers"]["model.vlm_with_expert.vlm.model.text_model.layers.0.mlp.up_proj"]["group_size"] == 64
 
 
+def test_activation_hook_records_channel_max():
+    import mlx.nn as nn
+
+    from quantization.collect import _attach_amax
+
+    layer = nn.Linear(4, 2)
+    captured: list = []
+    _attach_amax(layer, "proj", captured)
+    layer(mx.array([[1.0, -3.0, 0.5, 0.0]]))
+    mx.eval(captured[0][1])
+    assert captured[0][0] == "proj"
+    np.testing.assert_allclose(np.array(captured[0][1]), [1.0, 3.0, 0.5, 0.0])
+
+
 def test_selective_w4_keeps_down_projection(tmp_path: Path):
     source = tmp_path / "src"
     source.mkdir()

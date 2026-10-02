@@ -8,6 +8,22 @@ import numpy as np
 from deployment.session import InferenceSession, synthetic_observation
 
 
+def _attach_amax(module, name: str, captured: list[tuple[str, mx.array]]) -> None:
+    """Record inputs by changing the instance class.
+
+    ``module(x)`` looks up ``__call__`` on the class, so assigning
+    ``module.__call__`` does not run.
+    """
+    base = type(module)
+
+    def __call__(self, hidden, *args, **kwargs):
+        reduced = mx.max(mx.abs(hidden), axis=tuple(range(hidden.ndim - 1)))
+        captured.append((name, reduced))
+        return base.__call__(self, hidden, *args, **kwargs)
+
+    module.__class__ = type(f"{base.__name__}Amax", (base,), {"__call__": __call__})
+
+
 def collect_activation_amax(
     artifact: str,
     samples: int,
@@ -22,18 +38,15 @@ def collect_activation_amax(
         raise ValueError("Calibration needs at least one forward.")
     session = InferenceSession(artifact, dtype="bfloat16")
     stats: dict[str, np.ndarray] = {}
+    captured: list[tuple[str, mx.array]] = []
     for name, module in session.runtime.projections.items():
-        call = module.__call__
-
-        def wrapped(hidden, *, name=name, call=call):
-            reduced = mx.max(mx.abs(hidden), axis=tuple(range(hidden.ndim - 1)))
-            mx.eval(reduced)
+        _attach_amax(module, name, captured)
+    for seed in range(samples):
+        captured.clear()
+        session.predict(synthetic_observation(seed), task, seed=seed)
+        mx.eval(*(value for _, value in captured))
+        for name, reduced in captured:
             vector = np.asarray(reduced.astype(mx.float32))
             previous = stats.get(name)
             stats[name] = vector if previous is None else np.maximum(previous, vector)
-            return call(hidden)
-
-        module.__call__ = wrapped
-    for seed in range(samples):
-        session.predict(synthetic_observation(seed), task, seed=seed)
     return stats
