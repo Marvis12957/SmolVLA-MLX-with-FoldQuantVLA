@@ -65,23 +65,135 @@ class QuantizedProjection:
     mode: str = "affine"
 
 
+@dataclass
+class PreparedActivation:
+    """Pre-computed activation transforms for QKV sharing.
+
+    Fields:
+        hidden_dtype: Original activation dtype before quantization.
+        width: Original activation width before padding.
+        pad: Optional padding array applied before scale/rotate.
+        scaled: SmoothQuant-scaled activation (or original if no smooth).
+        rotated: Hadamard-rotated activation (or scaled if no rotate).
+        quantized: (codes, token_scales) tuple ready for projection.
+        uses_qqmm: Whether projection should use mx.qqmm path.
+        uses_int4: Whether weight is INT4 (for code unpacking).
+    """
+    hidden_dtype: mx.Dtype
+    width: int
+    pad: mx.array | None
+    scaled: mx.array
+    rotated: mx.array
+    quantized: tuple[mx.array, mx.array]
+    uses_qqmm: bool
+    uses_int4: bool
+
+
+# Feature flag for QKV activation sharing (default True for quantized)
+QKV_SHARING_ENABLED = True
+
+
 class FoldLinear(nn.Module):
     """SmoothQuant, FWHT, and per-token activation quant around an MLX linear.
 
     Weights that fit group 32/64/128 use ``nn.QuantizedLinear``. The others keep
     one scale per row and a dense ``nn.Linear`` of the dequantized matrix.
+
+    Supports QKV activation sharing via ``prepare_activation`` and ``forward_prepared``.
     """
 
     def __init__(self, spec: QuantizedProjection, proj: nn.Module) -> None:
         super().__init__()
         self.proj = proj
-        self.smooth = mx.array(np.ascontiguousarray(spec.smooth_scale))
+        self.smooth = mx.array(np.ascontiguousarray(spec.smooth_scale)) if spec.smooth_scale is not None else None
         self.bits = spec.bits
         self.rotate = spec.rotate
         self.block_size = spec.block_size
+        self.has_smooth = spec.smooth_scale is not None
+
+    def prepare_activation(self, hidden: mx.array) -> PreparedActivation:
+        """Prepare activation for QKV sharing: performs pad/scale/rotate/quant but NOT projection.
+
+        Returns a PreparedActivation that can be reused across Q, K, V projections.
+
+        Args:
+            hidden: Input activation tensor [batch, seq, hidden_dim]
+
+        Returns:
+            PreparedActivation with pre-computed transforms
+        """
+        hidden_dtype = hidden.dtype
+        original_width = hidden.shape[-1]
+
+        # Determine target width based on projection input size
+        proj_in = _proj_in(self.proj)
+        target_width = proj_in
+
+        # Handle padding if needed
+        pad = None
+        working = hidden
+        if original_width != target_width:
+            if original_width > target_width:
+                working = hidden[..., :target_width]
+            else:
+                pad_width = target_width - original_width
+                pad = mx.zeros((*hidden.shape[:-1], pad_width), dtype=hidden.dtype)
+                working = mx.concatenate([hidden, pad], axis=-1)
+
+        # Apply SmoothQuant scale if present
+        if self.has_smooth:
+            scaled = working / self.smooth.astype(working.dtype)
+        else:
+            scaled = working
+
+        # Apply Hadamard rotation if enabled
+        if self.rotate:
+            rotated = hadamard(scaled, self.block_size)
+        else:
+            rotated = scaled
+
+        # Quantize: (codes, token_scales)
+        codes, token_scales = dynamic_quantize_mx(rotated, self.bits)
+
+        # Determine if using qqmm path and int4
+        uses_qqmm = hasattr(self.proj, "group_size") and self.proj.group_size > 0
+        uses_int4 = self.bits == 4
+
+        return PreparedActivation(
+            hidden_dtype=hidden_dtype,
+            width=original_width,
+            pad=pad,
+            scaled=scaled,
+            rotated=rotated,
+            quantized=(codes, token_scales),
+            uses_qqmm=uses_qqmm,
+            uses_int4=uses_int4,
+        )
+
+    def forward_prepared(self, prepared: PreparedActivation) -> mx.array:
+        """Run projection using pre-computed activation.
+
+        Args:
+            prepared: Pre-computed activation from prepare_activation
+
+        Returns:
+            Projection output with dtype matching original hidden
+        """
+        codes, token_scales = prepared.quantized
+
+        # Dequantize back to activation dtype
+        restored = codes.astype(prepared.hidden_dtype) * token_scales.astype(prepared.hidden_dtype)[..., None]
+
+        # Run through projection
+        output = self.proj(restored)
+        return output if output.dtype == prepared.hidden_dtype else output.astype(prepared.hidden_dtype)
 
     def __call__(self, hidden: mx.array) -> mx.array:
-        value = hidden / self.smooth.astype(hidden.dtype)
+        if QKV_SHARING_ENABLED and hasattr(self, "_shared_prepared"):
+            return self.forward_prepared(self._shared_prepared)
+        value = hidden
+        if self.has_smooth:
+            value = value / self.smooth.astype(value.dtype)
         if self.rotate:
             value = hadamard(value, self.block_size)
         codes, token_scales = dynamic_quantize_mx(value, self.bits)
@@ -365,13 +477,48 @@ class MLXSmolVLARuntime:
     def _self_attention(self, streams, layer_idx, positions, mask, cache, use_cache: bool):
         queries, keys, values = [], [], []
         layers = (self.text[layer_idx], self.expert[layer_idx])
-        for hidden, layer in zip(streams, layers, strict=True):
+
+        # Determine if this layer uses QKV sharing
+        # Language layers 0-15: share Q, K, V
+        # Expert odd layers (1, 3, 5, ...): share K, V only
+        # QKV sharing requires ALL projections to be FoldLinear
+        use_qkv_sharing = QKV_SHARING_ENABLED
+
+        for stream_idx, (hidden, layer) in enumerate(zip(streams, layers, strict=True)):
             if hidden is None:
                 continue
             normed = layer.input_norm(hidden)
-            queries.append(_heads(layer.q(normed), layer.heads, HEAD_DIM))
-            keys.append(_heads(layer.k(normed), layer.kv_heads, HEAD_DIM))
-            values.append(_heads(layer.v(normed), layer.kv_heads, HEAD_DIM))
+
+            # Check if all projections support QKV sharing
+            supports_sharing = (
+                isinstance(layer.q, FoldLinear)
+                and isinstance(layer.k, FoldLinear)
+                and isinstance(layer.v, FoldLinear)
+            )
+            use_sharing = use_qkv_sharing and supports_sharing
+
+            if use_sharing:
+                # Prepare activation once, reuse for Q, K, V (or K, V only)
+                is_expert_odd = stream_idx == 1 and layer_idx % 2 == 1
+                if is_expert_odd:
+                    # Expert odd: share K, V only (Q is unique)
+                    prepared_kv = layer.k.prepare_activation(normed)
+                    q_proj = layer.q(normed)
+                    queries.append(_heads(q_proj, layer.heads, HEAD_DIM))
+                    keys.append(_heads(layer.k.forward_prepared(prepared_kv), layer.kv_heads, HEAD_DIM))
+                    values.append(_heads(layer.v.forward_prepared(prepared_kv), layer.kv_heads, HEAD_DIM))
+                else:
+                    # Language layers or expert even: share Q, K, V
+                    prepared = layer.q.prepare_activation(normed)
+                    queries.append(_heads(layer.q.forward_prepared(prepared), layer.heads, HEAD_DIM))
+                    keys.append(_heads(layer.k.forward_prepared(prepared), layer.kv_heads, HEAD_DIM))
+                    values.append(_heads(layer.v.forward_prepared(prepared), layer.kv_heads, HEAD_DIM))
+            else:
+                # Original path: separate projections
+                queries.append(_heads(layer.q(normed), layer.heads, HEAD_DIM))
+                keys.append(_heads(layer.k(normed), layer.kv_heads, HEAD_DIM))
+                values.append(_heads(layer.v(normed), layer.kv_heads, HEAD_DIM))
+
         query = mx.concatenate(queries, axis=1)
         key = mx.concatenate(keys, axis=1)
         value = mx.concatenate(values, axis=1)
