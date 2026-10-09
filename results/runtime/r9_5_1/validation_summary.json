@@ -1,0 +1,55 @@
+{
+  "phase": "R9.5.1",
+  "artifact": "results/quantization/clean_track/artifacts/fq-pad768-language-downproj-w8",
+  "commit_audited": "1a3d02b7358fbdcdf10d9a4e667387a49941a632",
+  "decision": "NO_FIX_REQUIRED",
+  "bug": {
+    "status": "NOT_CONFIRMED",
+    "hypothesis": "expert cross-attention V reuses K-prepared activation",
+    "actual_dispatch": "_cross_attention calls expert.k(flat_k) and expert.v(flat_v) independently",
+    "evidence": "models/smolvla/src/smolvla_mlx/runtime.py:L830-L843"
+  },
+  "parity": {
+    "seeds": [0, 1, 2],
+    "complete_action_shared_vs_independent": {
+      "cosine": 1.0,
+      "mae": 0.0,
+      "max_abs": 0.0,
+      "relative_l2": 0.0
+    },
+    "expert_even_qkv_and_attention": "exact equality for layers 0,2,4,6,8,10,12,14",
+    "odd_cross_wrong_k_input_to_v_control": {
+      "mae_range": [0.894485354423523, 1.0752795934677124],
+      "max_abs_range": [5.109046936035156, 6.59561014175415],
+      "interpretation": "the suspected magnitude is reproducible only in deliberately incorrect control, not actual dispatch"
+    }
+  },
+  "kv": {
+    "odd_cross_layers": 8,
+    "euler_steps": 10,
+    "k_projection_calls": 80,
+    "v_projection_calls": 80,
+    "prepare_activation_calls_for_odd_cross_k": 0,
+    "prepare_activation_calls_for_odd_cross_v": 0,
+    "precomputation_feasibility": "mathematically plausible for unchanged prefix cache; explicitly not implemented in R9.5.1"
+  },
+  "low_bit": {
+    "foldlinear_instances": 224,
+    "mlx_quantized_linear_instances": 0,
+    "active_weight_path": "_row_linear unpacks/scales codes into dense nn.Linear",
+    "active_gemm": "MLX floating dense projection after activation dequantization",
+    "gemm_mlx_float32_w8": "available but not instantiated by _projection"
+  },
+  "benchmark": {
+    "boundary": "runtime.predict_action_chunk; fixed observation/noise; five warmups; 50 synchronized measures",
+    "sharing_enabled": {"p50_ms": 194.93397900000002, "p90_ms": 195.65807470000001, "mean_ms": 195.40404824},
+    "sharing_disabled_independent_reference": {"p50_ms": 198.618708, "p90_ms": 199.0939, "mean_ms": 198.41439415999997},
+    "memory_delta": null,
+    "memory_delta_reason": "No production code change; no before/after allocation comparison is meaningful."
+  },
+  "tests": {
+    "artifact_diagnostic": "PASS: models/smolvla/scripts/r9_5_1_qkv_correctness.py",
+    "prepare_activation_suite": "PASS: 8 tests in models/smolvla/tests/test_prepare_activation_compile.py",
+    "broader_foldquant_suite": "FAIL: 4 existing API/expectation failures unrelated to R9.5.1; see documentation"
+  }
+}

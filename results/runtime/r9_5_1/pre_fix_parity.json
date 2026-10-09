@@ -1,0 +1,657 @@
+{
+  "artifact": "/Users/Apple/Project/Vin/SmolVLA-MLX-with-FoldQuantVLA/results/quantization/clean_track/artifacts/fq-pad768-language-downproj-w8",
+  "flags": {
+    "QKV_SHARING_ENABLED": true,
+    "compile": false
+  },
+  "projection_parity": {
+    "even_self_attention": {
+      "0": {
+        "q": {
+          "cosine": 1.0,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "k": {
+          "cosine": 0.9999999403953552,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "v": {
+          "cosine": 1.0000001192092896,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "attention": {
+          "cosine": 1.0,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        }
+      },
+      "2": {
+        "q": {
+          "cosine": 0.9999999403953552,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "k": {
+          "cosine": 1.0,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "v": {
+          "cosine": 1.0,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "attention": {
+          "cosine": 1.0000001192092896,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        }
+      },
+      "4": {
+        "q": {
+          "cosine": 1.0,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "k": {
+          "cosine": 1.0,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "v": {
+          "cosine": 0.9999998807907104,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "attention": {
+          "cosine": 1.0,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        }
+      },
+      "6": {
+        "q": {
+          "cosine": 1.0000001192092896,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "k": {
+          "cosine": 1.0,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "v": {
+          "cosine": 0.9999999403953552,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "attention": {
+          "cosine": 1.0000001192092896,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        }
+      },
+      "8": {
+        "q": {
+          "cosine": 0.9999998807907104,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "k": {
+          "cosine": 1.0,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "v": {
+          "cosine": 0.9999999403953552,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "attention": {
+          "cosine": 1.0,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        }
+      },
+      "10": {
+        "q": {
+          "cosine": 1.0000001192092896,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "k": {
+          "cosine": 1.0,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "v": {
+          "cosine": 1.0000001192092896,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "attention": {
+          "cosine": 1.0,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        }
+      },
+      "12": {
+        "q": {
+          "cosine": 1.0,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "k": {
+          "cosine": 0.9999999403953552,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "v": {
+          "cosine": 1.0000001192092896,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "attention": {
+          "cosine": 1.0,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        }
+      },
+      "14": {
+        "q": {
+          "cosine": 1.0000001192092896,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "k": {
+          "cosine": 1.0000001192092896,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "v": {
+          "cosine": 0.9999998807907104,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "attention": {
+          "cosine": 1.0,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        }
+      }
+    },
+    "odd_cross_attention": {
+      "1": {
+        "k_shape": [
+          1,
+          241,
+          320
+        ],
+        "v_shape": [
+          1,
+          241,
+          320
+        ],
+        "wrong_k_input_reused_for_v": {
+          "cosine": -0.05602528527379036,
+          "mae": 0.9804592132568359,
+          "max_abs": 5.378547191619873,
+          "relative_l2": 1.0276459455490112
+        }
+      },
+      "3": {
+        "k_shape": [
+          1,
+          241,
+          320
+        ],
+        "v_shape": [
+          1,
+          241,
+          320
+        ],
+        "wrong_k_input_reused_for_v": {
+          "cosine": -0.010169029235839844,
+          "mae": 1.031562089920044,
+          "max_abs": 5.109046936035156,
+          "relative_l2": 1.0295759439468384
+        }
+      },
+      "5": {
+        "k_shape": [
+          1,
+          241,
+          320
+        ],
+        "v_shape": [
+          1,
+          241,
+          320
+        ],
+        "wrong_k_input_reused_for_v": {
+          "cosine": 0.02373872511088848,
+          "mae": 1.0202407836914062,
+          "max_abs": 6.342062950134277,
+          "relative_l2": 1.0666364431381226
+        }
+      },
+      "7": {
+        "k_shape": [
+          1,
+          241,
+          320
+        ],
+        "v_shape": [
+          1,
+          241,
+          320
+        ],
+        "wrong_k_input_reused_for_v": {
+          "cosine": 0.0038239911664277315,
+          "mae": 0.894485354423523,
+          "max_abs": 5.783794403076172,
+          "relative_l2": 1.105098843574524
+        }
+      },
+      "9": {
+        "k_shape": [
+          1,
+          241,
+          320
+        ],
+        "v_shape": [
+          1,
+          241,
+          320
+        ],
+        "wrong_k_input_reused_for_v": {
+          "cosine": -0.002889185445383191,
+          "mae": 0.9230471849441528,
+          "max_abs": 5.348653793334961,
+          "relative_l2": 1.1202113628387451
+        }
+      },
+      "11": {
+        "k_shape": [
+          1,
+          241,
+          320
+        ],
+        "v_shape": [
+          1,
+          241,
+          320
+        ],
+        "wrong_k_input_reused_for_v": {
+          "cosine": 0.06548278033733368,
+          "mae": 1.0054042339324951,
+          "max_abs": 5.617650032043457,
+          "relative_l2": 1.205439805984497
+        }
+      },
+      "13": {
+        "k_shape": [
+          1,
+          241,
+          320
+        ],
+        "v_shape": [
+          1,
+          241,
+          320
+        ],
+        "wrong_k_input_reused_for_v": {
+          "cosine": -0.011295420117676258,
+          "mae": 1.0693607330322266,
+          "max_abs": 6.59561014175415,
+          "relative_l2": 1.0966792106628418
+        }
+      },
+      "15": {
+        "k_shape": [
+          1,
+          241,
+          320
+        ],
+        "v_shape": [
+          1,
+          241,
+          320
+        ],
+        "wrong_k_input_reused_for_v": {
+          "cosine": 0.003554061520844698,
+          "mae": 1.0752795934677124,
+          "max_abs": 6.49727725982666,
+          "relative_l2": 1.0968255996704102
+        }
+      }
+    }
+  },
+  "action_parity_shared_vs_independent": {
+    "0": {
+      "cosine": 1.0,
+      "mae": 0.0,
+      "max_abs": 0.0,
+      "relative_l2": 0.0
+    },
+    "1": {
+      "cosine": 1.0,
+      "mae": 0.0,
+      "max_abs": 0.0,
+      "relative_l2": 0.0
+    },
+    "2": {
+      "cosine": 1.0,
+      "mae": 0.0,
+      "max_abs": 0.0,
+      "relative_l2": 0.0
+    }
+  },
+  "call_counts": {
+    "all": {
+      "prepare:model.vlm_with_expert.vlm.model.text_model.layers.0.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.0.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.0.self_attn.k_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.0.self_attn.v_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.0.self_attn.o_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.0.mlp.gate_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.0.mlp.up_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.0.mlp.down_proj": 1,
+      "prepare:model.vlm_with_expert.vlm.model.text_model.layers.1.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.1.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.1.self_attn.k_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.1.self_attn.v_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.1.self_attn.o_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.1.mlp.gate_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.1.mlp.up_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.1.mlp.down_proj": 1,
+      "prepare:model.vlm_with_expert.vlm.model.text_model.layers.2.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.2.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.2.self_attn.k_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.2.self_attn.v_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.2.self_attn.o_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.2.mlp.gate_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.2.mlp.up_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.2.mlp.down_proj": 1,
+      "prepare:model.vlm_with_expert.vlm.model.text_model.layers.3.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.3.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.3.self_attn.k_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.3.self_attn.v_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.3.self_attn.o_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.3.mlp.gate_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.3.mlp.up_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.3.mlp.down_proj": 1,
+      "prepare:model.vlm_with_expert.vlm.model.text_model.layers.4.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.4.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.4.self_attn.k_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.4.self_attn.v_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.4.self_attn.o_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.4.mlp.gate_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.4.mlp.up_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.4.mlp.down_proj": 1,
+      "prepare:model.vlm_with_expert.vlm.model.text_model.layers.5.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.5.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.5.self_attn.k_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.5.self_attn.v_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.5.self_attn.o_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.5.mlp.gate_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.5.mlp.up_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.5.mlp.down_proj": 1,
+      "prepare:model.vlm_with_expert.vlm.model.text_model.layers.6.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.6.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.6.self_attn.k_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.6.self_attn.v_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.6.self_attn.o_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.6.mlp.gate_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.6.mlp.up_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.6.mlp.down_proj": 1,
+      "prepare:model.vlm_with_expert.vlm.model.text_model.layers.7.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.7.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.7.self_attn.k_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.7.self_attn.v_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.7.self_attn.o_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.7.mlp.gate_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.7.mlp.up_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.7.mlp.down_proj": 1,
+      "prepare:model.vlm_with_expert.vlm.model.text_model.layers.8.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.8.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.8.self_attn.k_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.8.self_attn.v_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.8.self_attn.o_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.8.mlp.gate_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.8.mlp.up_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.8.mlp.down_proj": 1,
+      "prepare:model.vlm_with_expert.vlm.model.text_model.layers.9.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.9.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.9.self_attn.k_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.9.self_attn.v_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.9.self_attn.o_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.9.mlp.gate_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.9.mlp.up_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.9.mlp.down_proj": 1,
+      "prepare:model.vlm_with_expert.vlm.model.text_model.layers.10.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.10.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.10.self_attn.k_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.10.self_attn.v_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.10.self_attn.o_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.10.mlp.gate_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.10.mlp.up_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.10.mlp.down_proj": 1,
+      "prepare:model.vlm_with_expert.vlm.model.text_model.layers.11.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.11.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.11.self_attn.k_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.11.self_attn.v_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.11.self_attn.o_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.11.mlp.gate_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.11.mlp.up_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.11.mlp.down_proj": 1,
+      "prepare:model.vlm_with_expert.vlm.model.text_model.layers.12.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.12.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.12.self_attn.k_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.12.self_attn.v_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.12.self_attn.o_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.12.mlp.gate_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.12.mlp.up_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.12.mlp.down_proj": 1,
+      "prepare:model.vlm_with_expert.vlm.model.text_model.layers.13.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.13.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.13.self_attn.k_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.13.self_attn.v_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.13.self_attn.o_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.13.mlp.gate_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.13.mlp.up_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.13.mlp.down_proj": 1,
+      "prepare:model.vlm_with_expert.vlm.model.text_model.layers.14.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.14.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.14.self_attn.k_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.14.self_attn.v_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.14.self_attn.o_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.14.mlp.gate_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.14.mlp.up_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.14.mlp.down_proj": 1,
+      "prepare:model.vlm_with_expert.vlm.model.text_model.layers.15.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.15.self_attn.q_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.15.self_attn.k_proj": 1,
+      "forward_prepared:model.vlm_with_expert.vlm.model.text_model.layers.15.self_attn.v_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.15.self_attn.o_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.15.mlp.gate_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.15.mlp.up_proj": 1,
+      "call:model.vlm_with_expert.vlm.model.text_model.layers.15.mlp.down_proj": 1,
+      "prepare:model.vlm_with_expert.lm_expert.layers.0.self_attn.q_proj": 10,
+      "forward_prepared:model.vlm_with_expert.lm_expert.layers.0.self_attn.q_proj": 10,
+      "forward_prepared:model.vlm_with_expert.lm_expert.layers.0.self_attn.k_proj": 10,
+      "forward_prepared:model.vlm_with_expert.lm_expert.layers.0.self_attn.v_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.0.self_attn.o_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.0.mlp.gate_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.0.mlp.up_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.0.mlp.down_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.1.self_attn.q_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.1.self_attn.k_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.1.self_attn.v_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.1.self_attn.o_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.1.mlp.gate_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.1.mlp.up_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.1.mlp.down_proj": 10,
+      "prepare:model.vlm_with_expert.lm_expert.layers.2.self_attn.q_proj": 10,
+      "forward_prepared:model.vlm_with_expert.lm_expert.layers.2.self_attn.q_proj": 10,
+      "forward_prepared:model.vlm_with_expert.lm_expert.layers.2.self_attn.k_proj": 10,
+      "forward_prepared:model.vlm_with_expert.lm_expert.layers.2.self_attn.v_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.2.self_attn.o_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.2.mlp.gate_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.2.mlp.up_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.2.mlp.down_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.3.self_attn.q_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.3.self_attn.k_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.3.self_attn.v_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.3.self_attn.o_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.3.mlp.gate_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.3.mlp.up_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.3.mlp.down_proj": 10,
+      "prepare:model.vlm_with_expert.lm_expert.layers.4.self_attn.q_proj": 10,
+      "forward_prepared:model.vlm_with_expert.lm_expert.layers.4.self_attn.q_proj": 10,
+      "forward_prepared:model.vlm_with_expert.lm_expert.layers.4.self_attn.k_proj": 10,
+      "forward_prepared:model.vlm_with_expert.lm_expert.layers.4.self_attn.v_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.4.self_attn.o_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.4.mlp.gate_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.4.mlp.up_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.4.mlp.down_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.5.self_attn.q_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.5.self_attn.k_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.5.self_attn.v_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.5.self_attn.o_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.5.mlp.gate_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.5.mlp.up_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.5.mlp.down_proj": 10,
+      "prepare:model.vlm_with_expert.lm_expert.layers.6.self_attn.q_proj": 10,
+      "forward_prepared:model.vlm_with_expert.lm_expert.layers.6.self_attn.q_proj": 10,
+      "forward_prepared:model.vlm_with_expert.lm_expert.layers.6.self_attn.k_proj": 10,
+      "forward_prepared:model.vlm_with_expert.lm_expert.layers.6.self_attn.v_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.6.self_attn.o_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.6.mlp.gate_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.6.mlp.up_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.6.mlp.down_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.7.self_attn.q_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.7.self_attn.k_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.7.self_attn.v_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.7.self_attn.o_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.7.mlp.gate_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.7.mlp.up_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.7.mlp.down_proj": 10,
+      "prepare:model.vlm_with_expert.lm_expert.layers.8.self_attn.q_proj": 10,
+      "forward_prepared:model.vlm_with_expert.lm_expert.layers.8.self_attn.q_proj": 10,
+      "forward_prepared:model.vlm_with_expert.lm_expert.layers.8.self_attn.k_proj": 10,
+      "forward_prepared:model.vlm_with_expert.lm_expert.layers.8.self_attn.v_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.8.self_attn.o_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.8.mlp.gate_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.8.mlp.up_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.8.mlp.down_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.9.self_attn.q_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.9.self_attn.k_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.9.self_attn.v_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.9.self_attn.o_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.9.mlp.gate_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.9.mlp.up_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.9.mlp.down_proj": 10,
+      "prepare:model.vlm_with_expert.lm_expert.layers.10.self_attn.q_proj": 10,
+      "forward_prepared:model.vlm_with_expert.lm_expert.layers.10.self_attn.q_proj": 10,
+      "forward_prepared:model.vlm_with_expert.lm_expert.layers.10.self_attn.k_proj": 10,
+      "forward_prepared:model.vlm_with_expert.lm_expert.layers.10.self_attn.v_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.10.self_attn.o_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.10.mlp.gate_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.10.mlp.up_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.10.mlp.down_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.11.self_attn.q_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.11.self_attn.k_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.11.self_attn.v_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.11.self_attn.o_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.11.mlp.gate_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.11.mlp.up_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.11.mlp.down_proj": 10,
+      "prepare:model.vlm_with_expert.lm_expert.layers.12.self_attn.q_proj": 10,
+      "forward_prepared:model.vlm_with_expert.lm_expert.layers.12.self_attn.q_proj": 10,
+      "forward_prepared:model.vlm_with_expert.lm_expert.layers.12.self_attn.k_proj": 10,
+      "forward_prepared:model.vlm_with_expert.lm_expert.layers.12.self_attn.v_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.12.self_attn.o_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.12.mlp.gate_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.12.mlp.up_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.12.mlp.down_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.13.self_attn.q_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.13.self_attn.k_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.13.self_attn.v_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.13.self_attn.o_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.13.mlp.gate_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.13.mlp.up_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.13.mlp.down_proj": 10,
+      "prepare:model.vlm_with_expert.lm_expert.layers.14.self_attn.q_proj": 10,
+      "forward_prepared:model.vlm_with_expert.lm_expert.layers.14.self_attn.q_proj": 10,
+      "forward_prepared:model.vlm_with_expert.lm_expert.layers.14.self_attn.k_proj": 10,
+      "forward_prepared:model.vlm_with_expert.lm_expert.layers.14.self_attn.v_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.14.self_attn.o_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.14.mlp.gate_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.14.mlp.up_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.14.mlp.down_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.15.self_attn.q_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.15.self_attn.k_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.15.self_attn.v_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.15.self_attn.o_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.15.mlp.gate_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.15.mlp.up_proj": 10,
+      "call:model.vlm_with_expert.lm_expert.layers.15.mlp.down_proj": 10
+    },
+    "odd_cross_k_calls": 80,
+    "odd_cross_v_calls": 80,
+    "odd_cross_k_prepare": 0,
+    "odd_cross_v_prepare": 0
+  },
+  "dispatch": {
+    "foldlinear_count": 224,
+    "mlx_quantized_count": 0
+  },
+  "benchmark_shared": {
+    "p50_ms": 194.93397900000002,
+    "p90_ms": 195.65807470000001,
+    "mean_ms": 195.40404824,
+    "iterations": 50
+  },
+  "benchmark_independent": {
+    "p50_ms": 198.618708,
+    "p90_ms": 199.0939,
+    "mean_ms": 198.41439415999997,
+    "iterations": 50
+  }
+}
